@@ -1,0 +1,20 @@
+<html t:type="layout" title="About Sedam"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+<t:beaneditform object="rezervacija" exclude="rezid" add="sobid" >
+    <p:sobid>
+        <t:label for="sobid"/>
+        <t:select t:id="sobid" model="listaSoba" blankLabel="Odaberi sobu"  encoder="encoder"  validate="required"/>
+    </p:sobid>
+</t:beaneditform>
+<t:grid source="listaRezervacija" exclude="rezid" add="delete,soba" row="onerezervacija" reorder="Brojrezervacije, Brojdana, cena, soba, delete">
+<p:deleteCell>
+    <t:actionlink t:id="delete" context="onerezervacija.id">Delete</t:actionlink>
+</p:deleteCell>
+<p:sobaCell>
+    ${soba}
+</p:sobaCell>
+</t:grid>
+
+</html>
